@@ -1,0 +1,11 @@
+[Unit]
+Description=auto_login_wifi
+After=network.target
+ 
+[Service]
+Type=simple
+ExecStart=/bin/bash /opt/autoLoginWifi/login.sh
+ExecStop=/bin/bash kill ${MAINPID}
+ 
+[Install]
+WantedBy=multi-user.target
