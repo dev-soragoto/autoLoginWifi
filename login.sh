@@ -7,7 +7,7 @@ pingBaidu(){
 # 死循环,如果丢包率100就使用curl发请求进行登录
 while true
 do
-	for passwd in $(cat passwd.txt)
+	for passwd in $(cat /opt/autoLoginWifi/passwd.conf)
 	do
 	  sleep 1m
 		pingBaidu
