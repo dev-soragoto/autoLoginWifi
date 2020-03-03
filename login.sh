@@ -10,9 +10,10 @@ do
 		echo "$(date) 对www.baidu.com丢包率  ${result}%" >> /opt/autoLoginWifi/log/login-${logNameDate}.log
 		if [ ${result} -eq 100 ];then
 			echo $(date) 使用账号${passwd%,*}密码${passwd#*,}登录网络 >> /opt/autoLoginWifi/log/login-${logNameDate}.log
-			echo "$(date) 执行命令: curl --connect-timeout 5 -m 10 http://lan.wayos.com:88/auth.asp?usr=${passwd%,*}&pwd=${passwd#*,}" >> /opt/autoLoginWifi/log/login-${logNameDate}.log
+			echo "$(date) 执行命令: curl --connect-timeout 30 -m 60 http://lan.wayos.com:88/auth.asp?usr=${passwd%,*}&pwd=${passwd#*,}" >> /opt/autoLoginWifi/log/login-${logNameDate}.log
 			echo $(date) 使用账号${passwd%,*}密码${passwd#*,}登录网络
 			curl --connect-timeout 30 -m 60 http://lan.wayos.com:88/auth.asp?usr=${passwd%,*}\&pwd=${passwd#*,} >> /opt/autoLoginWifi/log/login-${logNameDate}.log
+			echo "" >> /opt/autoLoginWifi/log/login-${logNameDate}.log
 		fi
 		sleep 1m
 	done
