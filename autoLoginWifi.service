@@ -4,8 +4,8 @@ After=network.target
  
 [Service]
 Type=simple
+WorkingDirectory=/opt/autoLoginWifi
 ExecStart=/bin/bash /opt/autoLoginWifi/login.sh
-ExecStop=/bin/bash kill ${MAINPID}
  
 [Install]
 WantedBy=multi-user.target
